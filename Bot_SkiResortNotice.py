@@ -227,7 +227,10 @@ def Search(resort):
             DatatoSQL(df, resort)
 
             msg_final = "".join(msg)  # 리스트 내부 인자들을 전부 합치기. ""안에 기호를 넣으면 기호 포함되어 합쳐짐
-            token.sendMessage(Bot_ID, resort + " 리조트 공지" + "\n" + msg_final)
+
+            # 결과 텔레그램 전송
+            bot = telepot.Bot(token)
+            bot.sendMessage(Bot_ID, resort + " 리조트 공지" + "\n" + msg_final)
             logger.info("텔레그램 메세지 발송")
         else:
             print(resort, '신규 공지 없음')
