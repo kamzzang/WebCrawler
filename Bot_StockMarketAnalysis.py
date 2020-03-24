@@ -19,7 +19,10 @@ Bot_ID = admin_info['telegram']['id']['mc'] # "Receiver's Telegram ID"
 def Search_Daily(stock, term):
     web = webdriver.Chrome('chromedriver.exe')  # 크롬 웹 드라이버(본 py파일과 동일위치에 파일이 있을 경우는 별도 경로 불필요)
 
-    url = 'https://m.stock.naver.com/sise/siseIndex.nhn?code=%s' % (stock)
+    if stock != 'SEMICON':
+        url = 'https://m.stock.naver.com/sise/siseIndex.nhn?code=%s'%(stock)
+    else:
+        url = 'https://m.stock.naver.com/world/item.nhn?symbol=NAS@SOX'
 
     web.get(url)
     time.sleep(3)  # 데이터가 화면에 완전히 뜰 수 있도록 기다림
@@ -87,7 +90,7 @@ def Search_Daily(stock, term):
 
 
 if __name__ == '__main__':
-    stock = ['KOSPI', 'KOSDAQ']
+    stock = ['KOSPI', 'KOSDAQ', 'SEMICON']
     term = 20  # 기간은 임의 지정
     Result_data = []
 
@@ -98,6 +101,7 @@ if __name__ == '__main__':
 
     # 결과 텔레그램 전송
     bot = telepot.Bot(token)
-    bot.sendMessage(Bot_ID, '<주가지수모멘텀>' + '\n' + '1. 20일 평균 모멘텀' + '\n\t\t\t\t' \
-                    + stock[0] + ' : ' + Result_data[0] + '%' + '\n\t\t\t\t' + stock[1] + ' : ' + Result_data[2] + '%' + '\n' \
-                    + '2. 이동평균 모멘텀(4점)' + '\n\t\t\t\t' + stock[0] + ' : ' + Result_data[1] + '\n\t\t\t\t' + stock[1] + ' : ' + Result_data[3])
+    bot.sendMessage(Bot_ID, '<주가지수모멘텀>' + '\n' + '1. 20일 평균 모멘텀' + '\n\t\t\t\t' + stock[0] + ' : ' + Result_data[0] + '%' + '\n\t\t\t\t'
+                        + stock[1] + ' : ' + Result_data[2] + '%' + '\n\t\t\t\t' + '반도체지수' + ' : ' + Result_data[4] + '%' + '\n'
+                        + '2. 이동평균 모멘텀(4점)' + '\n\t\t\t\t' + stock[0] + ' : ' + Result_data[1] + '\n\t\t\t\t'
+                        + stock[1] + ' : ' + Result_data[3] + '\n\t\t\t\t' + '반도체지수' + ' : ' + Result_data[5])
