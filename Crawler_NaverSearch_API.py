@@ -7,12 +7,12 @@ import os
 import json
 
 
-admin_info_file = os.getenv('APPLICATION_ADMIN_INFO')
+admin_info_file = os.getenv('APPLICATION_ADMIN_INFO') # 환경변수에서 해당 이름의 변수 값(개인정보 json 링크)받아옴
 with open(admin_info_file, 'r') as f:
-    admin_info = json.load(f)
+    admin_info = json.load(f)                         # json 파일 로드
 
-client_key = admin_info['naverapi']['id']
-client_secret = admin_info['naverapi']['pw']
+client_key = admin_info['naverapi']['id']             # 필요한 정보 저장, 여기서는 naver api의 key
+client_secret = admin_info['naverapi']['pw']          # 필요한 정보 저장, 여기서는 naver api의 pw
 
 titles = []
 descriptions = []
@@ -72,7 +72,7 @@ def search(target, word):
                 data['items'][cnt]['description'].replace('<b>', '').replace('</b>', '').replace('\u263a', '').replace(
                     '\u20a9', '').replace('\u2764', '').replace('\u2013', ''))
 
-            adress.append(0)
+            # adress.append(0)
 
             links.append(data['items'][cnt]['link'])
 
@@ -85,7 +85,7 @@ def search(target, word):
 def SaveCSV():
     df['TITLE'] = titles
     df['DESC'] = descriptions
-    df['ADRESS'] = adress
+    # df['ADRESS'] = adress
     df['LINK'] = links
 
     # print(df)
