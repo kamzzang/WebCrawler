@@ -42,3 +42,4 @@
 * 건강보험심사평가원_공적 마스크 판매 정보 Open API를 통해 관심 지역의 공적 마스크 현황 받아 텔레그램으로 내용 전송  
   https://www.data.go.kr/dataset/15043025/openapi.do
 * 활용 : 매시간마다 실행되도록 하여 공적마스크 재고를 받아서 마스크 구매에 참고함
+* [상세설명](https://blog.naver.com/kamzzang1/221901521374)
