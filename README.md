@@ -43,3 +43,8 @@
   https://www.data.go.kr/dataset/15043025/openapi.do
 * 활용 : 매시간마다 실행되도록 하여 공적마스크 재고를 받아서 마스크 구매에 참고함
 * [상세설명](https://blog.naver.com/kamzzang1/221901521374)
+
+---
+## 8. Crawler_StockCompanyReport.py
+* 증권사 주식 추천 레포트 수집 크롤러
+* 활용 : 매일 각 증권사의 추천주 레포트 수집, 일별 주가 정보와 함께 주가 동향 파악
