@@ -48,3 +48,8 @@
 ## 8. Crawler_StockCompanyReport.py
 * 증권사 주식 추천 레포트 수집 크롤러
 * 활용 : 매일 각 증권사의 추천주 레포트 수집, 일별 주가 정보와 함께 주가 동향 파악
+
+---
+## 9. Crawler_NaverMapsAPI_Geocoding.py
+* 네이버 지도 API를 통한 경도 위도 변환
+* 활용 : 데이터 분석 시 지도 시각화
