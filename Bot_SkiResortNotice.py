@@ -190,6 +190,39 @@ def crawler_welli(resort):
         print("Error : ", e)
         logger.debug("%s 리조트 게시판 확인중 에러 : %s" % (resort, e))
 
+def crawler_high1(resort):
+    try:
+        url = 'https://www.high1.com/ski/selectBbsNttList.do?key=756&bbsNo=85&nttNo=131137&searchCtgry=%EC%8A%A4%ED%82%A4&searchCnd=all&searchKrwd=&integrDeptCode=&pageIndex=1'
+
+        data = urlopen(url).read()
+        soup = BeautifulSoup(data, 'html.parser')
+
+        texts = soup.find_all('td')#, class_ = 'left')
+        data = []
+        for i in texts:
+            data.append(i.text.replace('\n','').replace('\t','').replace('\r',''))
+        # print(data) #데이터 내용 확인 : 제목 인덱스 - 2, 7, 12 / 날짜 인덱스 - 3, 8, 13
+
+        title_new = []
+        date_new = []
+        cnt = 0
+        cnt_data = []
+        while (cnt < len(data)):
+            if cnt == 2 or (cnt + 3) % 5 == 0: # 제목 첫 인덱스인 '2', 연속하는 조건들의 동일 조건 확인 7, 12는 3을 더하면 5의 배수가 되므로 3을 더해서 5를 나눈 값이 0
+                title_new.append(data[cnt])
+                date_new.append(data[cnt + 1])
+                cnt_data.append(cnt)
+                cnt += 3 # 첫 조건에 만족해서 저장하고 나면 바로 다음 인덱스 조건에 만족할 수 있게 카운트를 더해버립
+            else:
+                cnt += 1
+
+
+        return title_new, date_new
+
+    except Exception as e:
+        # print("Error : ", e)
+        logger.debug("%s 리조트 게시판 확인중 에러 : %s" % (resort, e))
+
 def Search(resort):
     print(resort, "스키장 리조트 공지게시판 확인")
     try:
