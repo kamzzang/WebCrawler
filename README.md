@@ -83,4 +83,4 @@
 ---
 ## 16. Bot_OpenDartDataNotice.py
 * 전자공시시스템 API(Opendart)를 이용한 공시정보 텔레그램 봇
-* [상세설명](https://blog.naver.com/kamzzang1/)
+* [상세설명](https://blog.naver.com/kamzzang1/222166180806)
