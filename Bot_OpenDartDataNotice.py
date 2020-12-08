@@ -142,6 +142,10 @@ def Search_Dart(today, stock_list):
             print('%s : 데이터없음' % stock)
 
 if __name__ == '__main__':
-    today = datetime.date.today() # 오늘 날짜 저장
-    stock_list = ['삼성전자', 'SK하이닉스', '한화솔루션', 'LG화학'] # 원하는 종목을 리스트로 만듬
-    Search_Dart(today, stock_list) # 공시 정보 수집 시작
+    current = datetime.datetime.now()
+    current_time = current.strftime('%H:%M:%S')
+    
+    if current_time >= '07:00:00' and current_time <= '20:00:00': # 공시 업데이트되는 시간에 실행
+        today = datetime.date.today() # 오늘 날짜 저장
+        stock_list = ['삼성전자', 'SK하이닉스', '한화솔루션', 'LG화학'] # 원하는 종목을 리스트로 만듬
+        Search_Dart(today, stock_list) # 공시 정보 수집 시작
