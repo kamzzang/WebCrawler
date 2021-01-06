@@ -75,6 +75,8 @@
 ---
 ## 14. Crawler_StockNews.py
 * 관심 종목에 대한 네이버 증권사이트의 뉴스 크롤링
+* 네이버 증권사이트의 주식 종목별 관련 뉴스를 받음
+* 뉴스가 시간순으로 업데이트가 되지 않아 비효율적일 때가 있음
 
 ---
 ## 15. Crawler_OpenDartAPI.py
@@ -83,4 +85,6 @@
 ---
 ## 16. Bot_OpenDartDataNotice.py
 * 전자공시시스템 API(Opendart)를 이용한 공시정보 텔레그램 봇
-* [상세설명](https://blog.naver.com/kamzzang1/)
+* 관심 종목 설정 후 해당 종목에 대한 전자공시 내용을 텔레그램을 통한 알림받기
+* 매일 주중 알림을 위해서 당일 공시만 받음
+* [상세설명](https://blog.naver.com/kamzzang1/222166180806)
