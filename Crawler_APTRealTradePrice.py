@@ -14,7 +14,7 @@ def GetAddCode(address):
 def GetData(address, period):
     address_code = GetAddCode(address)
 
-    servicekey = 'EfRtcFvadGoXO%2BhapKqICKZXlpwITAdz6O03lA%2Bpdn%2FKvb55Ah5F6qj5FsfA2LWKjodZ%2Bqoh%2FFiRAcY%2FNuh6Jw%3D%3D'
+    servicekey = '일반 인증키 입력'
 
     url = f'http://openapi.molit.go.kr:8081/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcAptTrade?LAWD_CD={address_code}&DEAL_YMD={period}&serviceKey={servicekey}'
     f = urllib.request.urlopen(url)
