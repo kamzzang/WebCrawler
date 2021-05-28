@@ -20,7 +20,7 @@ def Sendmsg(msg):
 
 # 크롤링 결과 저장 변수
 # 전역 변수로 사용할 수도 있어 여기에 선언
-# 등록자, 제목, 링크 URL 저장함
+# 작성자(닉네임), 제목, 링크 URL 저장함
 data = {'Name':[],
         'Title':[],
         'URL':[]}
@@ -38,7 +38,7 @@ def Check():
         df = pd.read_sql("SELECT * from ITEM ", con=con)
         con.close()
 
-        item_name = df['Name'].tolist() # 동일 매물은 제외시키기 위해서 등록자만 리스트로 받음
+        item_name = df['Name'].tolist() # 동일 매물은 제외시키기 위해서 작성자만 리스트로 받음
         return item_name
 
     except Exception as e:
@@ -61,11 +61,11 @@ def Search(search_word):
 
     for i in table[-20:]:
         # 링크 주소는 모바일로 만들어서 메시지 발송
-        link = 'https://m.cafe.naver.com' + i.find('a')['href']
+        link = 'https://m.cafe.naver.com' + i.find('a')['href'] # a 태그의 href
 
-        title = i.find('h3')
+        title = i.find('h3') # h3 태그
 
-        name = i.find('span', class_='name')
+        name = i.find('span', class_='name') # span 태그의 name 클래스
 
         data['Name'].append(name.text.strip())
         data['Title'].append(title.text.strip())
@@ -77,7 +77,7 @@ def Search(search_word):
     check_list = Check() # 기존 저장된 매물 등록자 리스트
 
     for name in data['Name']:
-        # 크롤링으로 받은 데이터의 등록자가 기존 리스트에 없으면 메시지 전송/데이터 저장
+        # 크롤링으로 받은 데이터의 작성자가 기존 리스트에 없으면 메시지 전송/데이터 저장
         if name not in check_list:
             # 메시지 내용 : 게시글 제목 + URL
             msg = '중고나라 매물 알림\n{}\n{}'.format(data['Title'][data['Name'].index(name)], data['URL'][data['Name'].index(name)])
