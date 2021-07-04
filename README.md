@@ -93,3 +93,8 @@
 ---
 ## 17. Bot_UsedItemSearch_Naver.py
 * 네이버 카페 중고나라의 중고 매물 검색 결과 알림용 텔레그램 봇
+* [상세설명](https://blog.naver.com/kamzzang1/222372405318)
+
+---
+## 18. Bot_UsedItemSearch_Daangn.py
+* 당근 마켓의 중고 매물 검색 결롸 알림용 텔레그램 봇
