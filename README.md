@@ -98,3 +98,7 @@
 ---
 ## 18. Bot_UsedItemSearch_Daangn.py
 * 당근 마켓의 중고 매물 검색 결롸 알림용 텔레그램 봇
+
+---
+## 19. Crawler_NaverAutoLogin.py
+* Selenium webdriver를 이용한 네이버 자동 로그인(자동입력방지 캡차 회피)
